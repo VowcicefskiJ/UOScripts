@@ -3,7 +3,7 @@
 
 @setvar! prevFollowers followers
 
-while true
+while 1
     // Track follower count before cast to detect successful summon
     @setvar! prevFollowers followers
 
