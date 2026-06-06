@@ -3,8 +3,7 @@
 
 @setvar! prevFollowers followers
 
-while 1
-    // Track follower count before cast to detect successful summon
+:castloop
     @setvar! prevFollowers followers
 
     cast 'Water Elemental'
@@ -13,21 +12,25 @@ while 1
     if targetexists
         target 'self'
 
-        // Wait up to 5 seconds for the elemental to appear
+        // Wait up to 5s for the water elemental to appear
         @setvar! waited 0
-        while followers == prevFollowers && waited < 10
+        :waitloop
             pause 500
             @setvar! waited waited + 1
-        endwhile
+            if followers == prevFollowers
+                if waited < 10
+                    goto waitloop
+                endif
+            endif
 
+        // Water elemental was summoned — release it
         if followers > prevFollowers
-            // Elemental was successfully summoned — release it
             menu 0xAA898 9
             pause 750
         endif
     endif
 
-    // Meditate to recover mana regardless of cast outcome
+    // Meditate to recover mana
     hotkey 'Meditation'
     pause 10000
-endwhile
+goto castloop
