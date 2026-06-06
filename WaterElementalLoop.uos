@@ -3,7 +3,7 @@ while true
     waitfortarget 10000
     target 'self'
     pause 3000
-    menu 0xAA898 9
+    replygump 0xAA898 9
     pause 500
     hotkey 'Meditation'
     pause 10000
