@@ -3,9 +3,14 @@ while hp > 0
     waitfortarget 10000
     if targetexists
         target 'self'
-        pause 3000
-        replygump 0xAA898 9
-        pause 500
+        pause 2000
+        findtype 0x46 'any' 'ground' 5
+        if found
+            contextmenu found 6
+            waitforgump 0xAA898 5000
+            replygump 0xAA898 9
+            pause 500
+        endif
         hotkey 'Meditation'
         pause 10000
     endif
