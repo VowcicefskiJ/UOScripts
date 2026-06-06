@@ -4,7 +4,7 @@ while hp > 0
     if targetexists
         target 'self'
         pause 2000
-        findtype 0x46 'any' 'ground' 5
+        findtype 0x46 'any' 'any' 10
         if found
             click found
             waitforgump 0xAA898 5000
