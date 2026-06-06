@@ -1,10 +1,12 @@
 while hp > 0
     cast 'Water Elemental'
     waitfortarget 10000
-    target 'self'
-    pause 3000
-    replygump 0xAA898 9
-    pause 500
-    hotkey 'Meditation'
-    pause 10000
+    if targetexists
+        target 'self'
+        pause 3000
+        replygump 0xAA898 9
+        pause 500
+        hotkey 'Meditation'
+        pause 10000
+    endif
 endwhile
