@@ -1,0 +1,33 @@
+// Water Elemental Loop - Summons, releases, meditates, repeats
+// Cast Water Elemental -> wait for summon -> release -> meditate -> loop
+
+@setvar! prevFollowers followers
+
+while true
+    // Track follower count before cast to detect successful summon
+    @setvar! prevFollowers followers
+
+    cast 'Water Elemental'
+    waitfortarget 10000
+
+    if targetexists
+        target 'self'
+
+        // Wait up to 5 seconds for the elemental to appear
+        @setvar! waited 0
+        while followers == prevFollowers && waited < 10
+            pause 500
+            @setvar! waited waited + 1
+        endwhile
+
+        if followers > prevFollowers
+            // Elemental was successfully summoned — release it
+            menu 0xAA898 9
+            pause 750
+        endif
+    endif
+
+    // Meditate to recover mana regardless of cast outcome
+    hotkey 'Meditation'
+    pause 10000
+endwhile
