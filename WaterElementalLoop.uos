@@ -4,9 +4,9 @@ while hp > 0
     if targetexists
         target 'self'
         pause 2000
-        findtype 0x46 'any' 'any' 10
+        findtype 0x46 'any' 'world' 10
         if found
-            click found
+            useobject found
             waitforgump 0xAA898 5000
             replygump 0xAA898 9
             pause 500
