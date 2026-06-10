@@ -1,0 +1,17 @@
+# Script by Blumpy
+# Casts Harm, Poison, and Curse on last target.
+
+cast 'Harm'
+waitfortarget
+target 'last'
+wait 1000
+
+cast 'Poison'
+waitfortarget
+target 'last'
+wait 1000
+
+cast 'Curse'
+waitfortarget
+target 'last'
+wait 1000
