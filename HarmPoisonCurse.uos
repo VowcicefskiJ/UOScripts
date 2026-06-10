@@ -2,16 +2,14 @@
 # Casts Harm, Poison, and Curse on last target.
 
 cast 'Harm'
-waitfortarget
-target 'last'
+wft
+hotkey 'Last Target'
 wait 1000
-
 cast 'Poison'
-waitfortarget
-target 'last'
-wait 1000
-
+wft
+hotkey 'Last Target'
+wait 1500
 cast 'Curse'
-waitfortarget
-target 'last'
-wait 1000
+wft
+hotkey 'Last Target'
+wait 1500
